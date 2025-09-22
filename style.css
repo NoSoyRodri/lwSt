@@ -1,0 +1,304 @@
+/* -------------------- Reset básico -------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+/* -------------------- Header -------------------- */
+.header-top {
+  background-color: #0B3D91; /* azul corporativo */
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: 500px;
+  letter-spacing: 1px;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.header-nav a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #CFAF70; /* dorado */
+  width: 0;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+/* -------------------- About Section -------------------- */
+.about-section {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, rgba(93,64,55,0.85), rgba(215,204,200,0.85)), 
+                url('inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg') center/cover no-repeat; /* imagen de oficina legal */
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.25); /* overlay suave para que texto resalte */
+    z-index: 0;
+}
+
+.about-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    z-index: 1;
+    position: relative;
+}
+
+.about-text {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    z-index: 1;
+    position: relative;
+}
+
+/* -------------------- Team Section -------------------- */
+.team-section {
+  padding: 6rem 2rem;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.team-title {
+  position: relative;
+  display: inline-block;
+    font-size: 2.5rem;
+  margin-bottom: 6rem;
+  font-weight: 700;
+  color: #8B5E3C;
+  /*text-decoration: underline;
+  text-decoration-color: #8b5e3c; 
+  text-decoration-thickness: 3px; 
+  text-underline-offset: 10px; */
+}
+.team-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;                 /* grosor del subrayado */
+  width: 0%;                    /* empieza en 0 */
+  background-color: #8B5E3C;    /* color dorado/marrón elegante */
+  animation: underlineSlide 1.5s infinite alternate; /* animación de 1.5s */
+}
+@keyframes underlineSlide {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+/* Grid de miembros */
+.team-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* Card de miembro */
+.meet-card {
+  background: white;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  max-width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 450px;
+}
+
+.meet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.meet-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #0B3D91;
+}
+
+.meet.title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.meet-paragraph {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+/* -------------------- Media Queries -------------------- */
+@media(max-width: 1024px){
+  .team-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+  }
+
+  .about-title, .team-title, .contact-title {
+    font-size: 2rem;
+  }
+}
+
+@media(max-width: 768px){
+  .header-top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-nav a {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+  }
+  .meet-card{
+    margin: 10px 10px;
+  }
+  .meet-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .about-title, .team-title, .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .about-section {
+    padding: 4rem 1rem;
+  }
+
+  .team-section {
+    padding: 4rem 1rem;
+  }
+
+  .contact-section {
+    padding: 4rem 1rem;
+  }
+ 
+}
+
+.map-container {
+  display: block;
+    margin-top: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0;   /* asegura que no haya padding */
+   line-height: 0;
+}
+
+.contact-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color:#8B5E3C;
+}
+.contact-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;                 /* grosor del subrayado */
+  width: 0%;                    /* empieza en 0 */
+  background-color: #8B5E3C;    /* color dorado/marrón elegante */
+  animation: underlineSlide 1.5s infinite alternate; /* animación de 1.5s */
+}
+@keyframes underlineSlide {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.contact-item i {
+  margin-right: 10px;
+  color: #8B5E3C; /* un marrón elegante para el tema legal */
+  font-size: 1.3rem;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe57;
+}
+.whatsapp-btn i {
+  margin-right: 8px;
+}
